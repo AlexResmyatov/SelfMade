@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mrgradus.helpers.InputListener;
 import com.mrgradus.screens.TestScreen;
 
 public class SelfMadeGame extends Game {
@@ -17,6 +18,7 @@ public class SelfMadeGame extends Game {
 //		batch = new SpriteBatch();
 //		img = new Texture("badlogic.jpg");
 		this.setScreen(new TestScreen(this));
+		Gdx.input.setInputProcessor(new InputListener());
 	}
 
 	@Override

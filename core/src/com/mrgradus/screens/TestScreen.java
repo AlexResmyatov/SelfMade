@@ -9,6 +9,7 @@ public class TestScreen implements IScreen{
 	
 	public TestScreen(Game game) {
 		this.game=game;
+		
 	}
 	
 	@Override
