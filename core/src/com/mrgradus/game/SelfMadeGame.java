@@ -23,5 +23,7 @@ public class SelfMadeGame extends ApplicationAdapter {
 		batch.begin();
 		batch.draw(img, 0, 0);
 		batch.end();
+		//sdfsg
+		//sd
 	}
 }
