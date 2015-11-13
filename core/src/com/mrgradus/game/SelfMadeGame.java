@@ -27,7 +27,7 @@ public class SelfMadeGame extends Game {
 //		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 //		batch.begin();
 //		batch.draw(img, 0, 0);
-//		batch.end();000000
+//		batch.end();000000sdfsdf
 		super.render();
 	}
 }
