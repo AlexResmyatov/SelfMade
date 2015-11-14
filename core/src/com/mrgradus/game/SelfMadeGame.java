@@ -18,7 +18,7 @@ public class SelfMadeGame extends Game {
 //		batch = new SpriteBatch();
 //		img = new Texture("badlogic.jpg");
 		this.setScreen(new TestScreen(this));
-		Gdx.input.setInputProcessor(new InputListener());
+	//	Gdx.input.setInputProcessor(new InputListener());
 	}
 
 	@Override
