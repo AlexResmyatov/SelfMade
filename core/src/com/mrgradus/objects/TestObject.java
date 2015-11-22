@@ -14,7 +14,8 @@ public class TestObject implements IObject {
 	
 	@Override
 	public void update(float delta) {
-		Gdx.app.log("TestObject","update");
+		Gdx.app.log("TestObject","update "+delta);
+		screen.setLevel(new TestLevel2(screen));
 
 	}
 

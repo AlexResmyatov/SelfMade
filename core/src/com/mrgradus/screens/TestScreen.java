@@ -1,5 +1,6 @@
 package com.mrgradus.screens;
 
+import java.util.List;
 import java.util.Map;
 
 import com.badlogic.gdx.Game;
@@ -11,29 +12,32 @@ import com.mrgradus.objects.TestLevel;
 
 public class TestScreen implements IScreen{
 	
-	private Map<Integer ,Click> touches;
+	private List<Click> touches;
 	private Game game;
 	private ILevel level;
-	
+	private InputListener inputListener;
 	public TestScreen(Game game) {
 		this.game=game;
+		inputListener = new InputListener();
 		level = new TestLevel(this);
-		Gdx.input.setInputProcessor(new InputListener());
+		Gdx.input.setInputProcessor(inputListener);
 	}
 	
 	@Override
 	public void render(float delta) {
+		touches = inputListener.getTouches();
 		level.update(delta);
 	}
 	
 	@Override
-	public Map<Integer, Click> getTouches(){
+	public List<Click> getTouches(){
+		
 		return touches;
 	}
 	
 	@Override
 	public void setLevel(ILevel level){
-		
+		this.level = level;
 	}
 	
 	@Override

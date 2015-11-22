@@ -1,30 +1,29 @@
 package com.mrgradus.helpers;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 
 public class InputListener implements InputProcessor {
 
-	Map<Integer, Click> touches;
+	ArrayList<Click> touches;
 	
 	public InputListener() {
-		touches = new HashMap<Integer ,Click>();
+		touches = new ArrayList<Click>();
 	}
 	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		Gdx.app.log("touchDown", "x-"+screenX+" y-"+screenY +" ¹-"+pointer);
-		touches.put(pointer, new Click(screenX,screenY,pointer));
+		Gdx.app.log("touchDown", "x "+screenX+" y "+screenY +" ¹ "+pointer);
+		touches.add(pointer, new Click(screenX,screenY,pointer));
 		return true;
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		Gdx.app.log("touchUp", "x-"+screenX+" y-"+screenY +" ¹-"+pointer);
+		Gdx.app.log("touchUp", "x "+screenX+" y "+screenY +" ¹ "+pointer);
 		touches.remove(pointer);
 		return true;
 	}
@@ -38,10 +37,8 @@ public class InputListener implements InputProcessor {
 		return true;
 	}
 	
-	public Map<Integer, Click> getTouches(){
-		final Map<Integer, Click> map = new HashMap<Integer, Click>();
-		map.putAll(touches);
-		return map;
+	public List<Click> getTouches(){
+		return (ArrayList)touches.clone();
 	}
 	
 	
