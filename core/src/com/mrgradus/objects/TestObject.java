@@ -25,4 +25,10 @@ public class TestObject implements IObject {
 
 	}
 
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

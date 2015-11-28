@@ -1,5 +1,6 @@
 package com.mrgradus.screens;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import com.mrgradus.objects.TestLevel;
 
 public class TestScreen implements IScreen{
 	
-	private List<Click> touches;
+	private HashMap<Integer,Click> touches;
 	private Game game;
 	private ILevel level;
 	private InputListener inputListener;
@@ -30,7 +31,7 @@ public class TestScreen implements IScreen{
 	}
 	
 	@Override
-	public List<Click> getTouches(){
+	public HashMap<Integer,Click> getTouches(){
 		
 		return touches;
 	}
@@ -40,6 +41,10 @@ public class TestScreen implements IScreen{
 		this.level = level;
 	}
 	
+	@Override
+	public ILevel getLevel() {
+		return level;
+	}
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
@@ -81,5 +86,7 @@ public class TestScreen implements IScreen{
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }

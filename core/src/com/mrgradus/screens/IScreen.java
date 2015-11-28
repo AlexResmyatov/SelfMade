@@ -1,6 +1,6 @@
 package com.mrgradus.screens;
 
-import java.util.List;
+import java.util.HashMap;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -13,5 +13,7 @@ public interface IScreen extends Screen{
 	
 	public void setLevel(ILevel level);
 	
-	public List<Click> getTouches();
+	public ILevel getLevel();
+	
+	public HashMap<Integer, Click> getTouches();
 }

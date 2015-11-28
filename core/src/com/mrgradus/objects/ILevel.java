@@ -4,12 +4,14 @@ import java.util.List;
 
 public abstract class ILevel {
 
+	protected List<IObject> objects;
+	
 	public void update(float delta){
 		
 	}
 	
 	public List<IObject> getAllObjects(){
-		return null;
+		return objects;
 		
 	}
 	

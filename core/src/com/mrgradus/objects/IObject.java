@@ -5,7 +5,13 @@ import com.mrgradus.screens.IScreen;
 
 public interface IObject {
 
+//	public int getX();
+//	
+//	public int getY();
+	
 	public void update(float delta);
 	
 	public void render(SpriteBatch batch);
+	
+	public void dispose();
 }

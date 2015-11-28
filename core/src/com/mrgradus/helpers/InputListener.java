@@ -1,6 +1,7 @@
 package com.mrgradus.helpers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
@@ -8,16 +9,16 @@ import com.badlogic.gdx.InputProcessor;
 
 public class InputListener implements InputProcessor {
 
-	ArrayList<Click> touches;
+	HashMap<Integer,Click> touches;
 	
 	public InputListener() {
-		touches = new ArrayList<Click>();
+		touches = new HashMap<Integer,Click>();
 	}
 	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		Gdx.app.log("touchDown", "x "+screenX+" y "+screenY +" ¹ "+pointer);
-		touches.add(pointer, new Click(screenX,screenY,pointer));
+		touches.put(pointer, new Click(screenX,screenY,pointer));
 		return true;
 	}
 
@@ -37,8 +38,8 @@ public class InputListener implements InputProcessor {
 		return true;
 	}
 	
-	public List<Click> getTouches(){
-		return (ArrayList)touches.clone();
+	public HashMap<Integer,Click> getTouches(){
+		return (HashMap<Integer,Click>)touches.clone();
 	}
 	
 	

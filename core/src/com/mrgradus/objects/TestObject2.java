@@ -14,34 +14,55 @@ public class TestObject2 implements IObject {
 	SpriteBatch batch;
 	private Texture img;
 	private IScreen screen;
-	public TestObject2(IScreen screen) {
+	public TestObject2(IScreen screen,int y) {
 		this.screen = screen;
+		this.y=y;
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 	}
 	@Override
 	public void update(float delta) {
 		if(onClick()){
-			x+=50;
+			x+=2;
+			//this.dispose();
+			for(IObject object : screen.getLevel().getAllObjects()){
+				TestObject2 to2 = (TestObject2)object;
+				Gdx.app.log(""+to2, "x "+to2.getX()+" y"+to2.getY());
+			}
 		}
+//		Gdx.app.log(null, null);
 
 	}
 
 	@Override
 	public void render(SpriteBatch batch) {
-		Gdx.gl.glClearColor(1, 1, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		this.batch.begin();
-		this.batch.draw(img, x, 0, 100, 100);
-		this.batch.end();
+		batch.draw(img, x, y, 200, 200);
 
 	}
 	
 	private boolean onClick(){
-		for(Click click: screen.getTouches()){
-			if(click.getX()>x && click.getX()<x+100) return true;
+		for(Click click: screen.getTouches().values()){
+			if(click.getX()>x && click.getX()<x+200 && 
+					(Gdx.graphics.getHeight()-click.getY())>y && 
+					(Gdx.graphics.getHeight()-click.getY())<y+200) return true;
 		}
 		return false;
 	}
-
+	
+	public int getX(){
+		return x;
+	}
+	public int getY(){
+		return y;
+	}
+	
+	public String toString(){
+		return "TestObject2 "+x+" "+y;
+	}
+	
+	@Override
+	public void dispose(){
+		img.dispose();
+		screen.getLevel().getAllObjects().remove(this);
+	}
 }
