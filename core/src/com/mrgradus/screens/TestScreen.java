@@ -1,26 +1,28 @@
 package com.mrgradus.screens;
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.mrgradus.helpers.Camera;
 import com.mrgradus.helpers.Click;
 import com.mrgradus.helpers.InputListener;
-import com.mrgradus.objects.ILevel;
+import com.mrgradus.objects.ALevel;
 import com.mrgradus.objects.TestLevel;
+import com.mrgradus.objects.TestLevel2;
 
 public class TestScreen implements IScreen{
 	
 	private HashMap<Integer,Click> touches;
 	private Game game;
-	private ILevel level;
+	private ALevel level;
 	private InputListener inputListener;
+	private Camera camera;
 	public TestScreen(Game game) {
 		this.game=game;
 		inputListener = new InputListener();
-		level = new TestLevel(this);
+		camera = new Camera();
+		level = new TestLevel2(this);
 		Gdx.input.setInputProcessor(inputListener);
 	}
 	
@@ -28,6 +30,7 @@ public class TestScreen implements IScreen{
 	public void render(float delta) {
 		touches = inputListener.getTouches();
 		level.update(delta);
+		camera.render(level.getAllObjects());
 	}
 	
 	@Override
@@ -37,12 +40,12 @@ public class TestScreen implements IScreen{
 	}
 	
 	@Override
-	public void setLevel(ILevel level){
+	public void setLevel(ALevel level){
 		this.level = level;
 	}
 	
 	@Override
-	public ILevel getLevel() {
+	public ALevel getLevel() {
 		return level;
 	}
 	@Override

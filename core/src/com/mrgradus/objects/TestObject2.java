@@ -11,6 +11,8 @@ public class TestObject2 implements IObject {
 	
 	int x=0;
 	int y=0;
+	int width=100;
+	int height=100;
 	SpriteBatch batch;
 	private Texture img;
 	private IScreen screen;
@@ -18,25 +20,24 @@ public class TestObject2 implements IObject {
 		this.screen = screen;
 		this.y=y;
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+//		img = new Texture("badlogic.jpg");
+		img = new Texture("a.png");
 	}
 	@Override
 	public void update(float delta) {
 		if(onClick()){
 			x+=2;
-			//this.dispose();
-			for(IObject object : screen.getLevel().getAllObjects()){
-				TestObject2 to2 = (TestObject2)object;
-				Gdx.app.log(""+to2, "x "+to2.getX()+" y"+to2.getY());
-			}
+//			for(IObject object : screen.getLevel().getAllObjects()){
+//				TestObject2 to2 = (TestObject2)object;
+//				Gdx.app.log(""+to2, "x "+to2.getX()+" y"+to2.getY());
+//			}
 		}
-//		Gdx.app.log(null, null);
 
 	}
 
 	@Override
 	public void render(SpriteBatch batch) {
-		batch.draw(img, x, y, 200, 200);
+		batch.draw(img, x, y, 100, 100);
 
 	}
 	
