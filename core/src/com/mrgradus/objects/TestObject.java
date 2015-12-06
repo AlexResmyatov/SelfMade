@@ -20,7 +20,7 @@ public class TestObject implements IObject {
 	}
 
 	@Override
-	public void render(SpriteBatch batch) {
+	public void render(SpriteBatch batch,int x,int y,int width, int height) {
 		// TODO Auto-generated method stub
 
 	}
@@ -29,6 +29,30 @@ public class TestObject implements IObject {
 	public void dispose() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int getX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getY() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

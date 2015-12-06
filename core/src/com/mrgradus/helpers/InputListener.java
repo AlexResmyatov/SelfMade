@@ -1,8 +1,6 @@
 package com.mrgradus.helpers;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -17,24 +15,29 @@ public class InputListener implements InputProcessor {
 	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		Gdx.app.log("touchDown", "x "+screenX+" y "+screenY +" ¹ "+pointer);
+//		Gdx.app.log("touchDown", "x "+screenX+" y "+screenY +" ¹ "+pointer);
+//		touches.put(pointer, new Click((int)((float)screenX/((float)Gdx.graphics.getWidth()/1280.f)),
+//										(int)((float)(Gdx.graphics.getHeight()-screenY)/((float)Gdx.graphics.getWidth()/1280.f)),
+//										pointer));
+//		Gdx.app.log("touchDown", touches.get(pointer).getX()+" "+touches.get(pointer).getY());
 		touches.put(pointer, new Click(screenX,screenY,pointer));
 		return true;
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		Gdx.app.log("touchUp", "x "+screenX+" y "+screenY +" ¹ "+pointer);
+		//Gdx.app.log("touchUp", "x "+screenX+" y "+screenY +" ¹ "+pointer);
 		touches.remove(pointer);
 		return true;
 	}
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
+//		touches.get(pointer).setX((int)((float)screenX/((float)Gdx.graphics.getWidth()/1280.f)));
+//		touches.get(pointer).setY((int)((float)(Gdx.graphics.getHeight()-screenY)/((float)Gdx.graphics.getWidth()/1280.f)));
 		touches.get(pointer).setX(screenX);
 		touches.get(pointer).setY(screenY);
-		
-		Gdx.app.log("touchDragged", "x "+screenX+" y "+screenY+" p "+ pointer);
+		//Gdx.app.log("touchDragged", "x "+screenX+" y "+screenY+" p "+ pointer);
 		return true;
 	}
 	

@@ -16,4 +16,6 @@ public interface IScreen extends Screen{
 	public ALevel getLevel();
 	
 	public HashMap<Integer, Click> getTouches();
+	
+	public float getScale();
 }

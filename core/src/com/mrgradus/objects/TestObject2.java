@@ -26,36 +26,42 @@ public class TestObject2 implements IObject {
 	@Override
 	public void update(float delta) {
 		if(onClick()){
-			x+=2;
-//			for(IObject object : screen.getLevel().getAllObjects()){
-//				TestObject2 to2 = (TestObject2)object;
-//				Gdx.app.log(""+to2, "x "+to2.getX()+" y"+to2.getY());
-//			}
+			x+=10;
 		}
 
 	}
 
 	@Override
-	public void render(SpriteBatch batch) {
-		batch.draw(img, x, y, 100, 100);
+	public void render(SpriteBatch batch,int x,int y,int width, int height) {
+		batch.draw(img, x, y, width, height);
 
 	}
 	
 	private boolean onClick(){
 		for(Click click: screen.getTouches().values()){
-			if(click.getX()>x && click.getX()<x+200 && 
-					(Gdx.graphics.getHeight()-click.getY())>y && 
-					(Gdx.graphics.getHeight()-click.getY())<y+200) return true;
+			if(click.getX()>x && click.getX()<x+width && 
+					click.getY()>y && click.getY()<y+height) 
+				return true;
 		}
 		return false;
 	}
-	
+	@Override
 	public int getX(){
 		return x;
 	}
+	@Override
 	public int getY(){
 		return y;
 	}
+	@Override
+	public int getWidth(){
+		return width;
+	}
+	@Override
+	public int getHeight(){
+		return height;
+	}
+	
 	
 	public String toString(){
 		return "TestObject2 "+x+" "+y;

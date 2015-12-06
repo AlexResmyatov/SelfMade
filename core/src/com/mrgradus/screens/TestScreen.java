@@ -12,31 +12,45 @@ import com.mrgradus.objects.TestLevel;
 import com.mrgradus.objects.TestLevel2;
 
 public class TestScreen implements IScreen{
-	
+	static float scale;
+	final float GAME_WIDTH=1280.f;
 	private HashMap<Integer,Click> touches;
 	private Game game;
 	private ALevel level;
 	private InputListener inputListener;
 	private Camera camera;
 	public TestScreen(Game game) {
+		scale=Gdx.graphics.getWidth()/GAME_WIDTH;
+		Gdx.app.log(null,scale+"");
 		this.game=game;
 		inputListener = new InputListener();
-		camera = new Camera();
+		camera = new Camera(this);
 		level = new TestLevel2(this);
 		Gdx.input.setInputProcessor(inputListener);
 	}
 	
 	@Override
 	public void render(float delta) {
+		
 		touches = inputListener.getTouches();
+		transformTouches(touches);
 		level.update(delta);
-		camera.render(level.getAllObjects());
+		camera.render();
 	}
 	
 	@Override
 	public HashMap<Integer,Click> getTouches(){
-		
 		return touches;
+	}
+	public void transformTouches(HashMap<Integer,Click> touches){
+		for(Click click: touches.values()){
+			click.setX((int)((float)click.getX()/scale));
+			click.setY((int)((float)(Gdx.graphics.getHeight()-click.getY()) / scale));
+		}
+	}
+	@Override
+	public float getScale() {
+		return scale;
 	}
 	
 	@Override
@@ -56,7 +70,6 @@ public class TestScreen implements IScreen{
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -20,27 +20,16 @@ public class TestLevel2 extends ALevel {
 		objects = new ArrayList<IObject>();
 		batch = new SpriteBatch();
 		objects.add(new TestObject2(screen,50));
-		objects.add(new TestObject2(screen,200));
-		objects.add(new TestObject2(screen,400));
+		objects.add(new TestObject2(screen,150));
+		objects.add(new TestObject2(screen,300));
 		//adds an objects
 	}
 	
 	public void update(float delta) {
 		for(int i=0;i<objects.size();i++){
 			objects.get(i).update(delta);
-//			if(objects.get(i)!=null) objects.get(i).render(batch);
-//			Gdx.app.log(null, "render");
 		}
-		
-//		Gdx.gl.glClearColor(1, 1, 0, 1);
-//		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-//		batch.begin();
-		
-//		for(IObject object: objects){
-////			object.update(delta);
-//			if(object!=null) object.render(batch);
-//		}
-//		batch.end();
+
 	}
 
 

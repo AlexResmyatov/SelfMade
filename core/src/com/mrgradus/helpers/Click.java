@@ -36,6 +36,10 @@ public class Click {
 		this.pointer = pointer;
 	}
 	
+	public String toString(){
+		return x+" "+y+" "+pointer;
+	}
+	
 	
 	
 	
