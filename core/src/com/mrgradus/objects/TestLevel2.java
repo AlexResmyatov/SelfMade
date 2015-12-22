@@ -11,7 +11,6 @@ import com.mrgradus.screens.IScreen;
 public class TestLevel2 extends ALevel {
 
 	private IScreen screen;
-	//private List<IObject> objects;
 	SpriteBatch batch;
 	
 	
@@ -22,7 +21,8 @@ public class TestLevel2 extends ALevel {
 		objects.add(new TestObject2(screen,50));
 		objects.add(new TestObject2(screen,150));
 		objects.add(new TestObject2(screen,300));
-		//adds an objects
+		objects.add(new TestB1(screen, 0));
+
 	}
 	
 	public void update(float delta) {
@@ -32,15 +32,5 @@ public class TestLevel2 extends ALevel {
 
 	}
 
-
-	public List<IObject> getObjectsWithPropertys(List<Property> propertys) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<IObject> getObjectsWithPropertys(Property property) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

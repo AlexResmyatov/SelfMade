@@ -1,5 +1,7 @@
 package com.mrgradus.objects;
 
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mrgradus.screens.IScreen;
@@ -53,6 +55,12 @@ public class TestObject implements IObject {
 	public int getHeight() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<String> getPropertys() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

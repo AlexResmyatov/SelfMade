@@ -12,47 +12,46 @@ import com.mrgradus.objects.TestLevel;
 import com.mrgradus.objects.TestLevel2;
 
 public class TestScreen implements IScreen{
-	static float scale;
-	final float GAME_WIDTH=1280.f;
+
 	private HashMap<Integer,Click> touches;
 	private Game game;
 	private ALevel level;
 	private InputListener inputListener;
 	private Camera camera;
-	public TestScreen(Game game) {
-		scale=Gdx.graphics.getWidth()/GAME_WIDTH;
-		Gdx.app.log(null,scale+"");
+	public TestScreen(Game game, ALevel level) {
+
 		this.game=game;
-		inputListener = new InputListener();
-		camera = new Camera(this);
+		camera = new Camera();
+		inputListener = new InputListener(camera);
+		
 		level = new TestLevel2(this);
 		Gdx.input.setInputProcessor(inputListener);
+	}
+	public TestScreen(Game game) {
+		this.game=game;
+		camera = new Camera();
+		inputListener = new InputListener(camera);
+		Gdx.input.setInputProcessor(inputListener);
+		level = new TestLevel2(this);
+		
 	}
 	
 	@Override
 	public void render(float delta) {
 		
 		touches = inputListener.getTouches();
-		transformTouches(touches);
 		level.update(delta);
-		camera.render();
+		camera.render(level.getAllObjects());
 	}
 	
 	@Override
 	public HashMap<Integer,Click> getTouches(){
 		return touches;
 	}
-	public void transformTouches(HashMap<Integer,Click> touches){
-		for(Click click: touches.values()){
-			click.setX((int)((float)click.getX()/scale));
-			click.setY((int)((float)(Gdx.graphics.getHeight()-click.getY()) / scale));
-		}
-	}
 	@Override
-	public float getScale() {
-		return scale;
+	public Camera getCamera(){
+		return camera;
 	}
-	
 	@Override
 	public void setLevel(ALevel level){
 		this.level = level;
@@ -70,7 +69,7 @@ public class TestScreen implements IScreen{
 
 	@Override
 	public void resize(int width, int height) {
-		
+
 	}
 
 	@Override
@@ -93,13 +92,20 @@ public class TestScreen implements IScreen{
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
+		Gdx.app.log(null, "dispose");
+		inputListener.dispose();
+		camera.dispose();
+		level.dispose();
+		
 		
 	}
-
 	@Override
-	public void setScreen(Game game) {
-		// TODO Auto-generated method stub
+	public Game getGame(){
+		return game;
+	}
+	@Override
+	public void setScreen(Game game, IScreen screen) {
+		game.setScreen(screen);
 		
 	}
 

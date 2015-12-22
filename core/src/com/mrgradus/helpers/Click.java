@@ -5,6 +5,11 @@ public class Click {
 	private int y;
 	private int pointer;
 	
+	public Click(int pointer) {
+		super();
+		this.pointer = pointer;
+	}
+	
 	public Click(int x, int y, int pointer) {
 		super();
 		this.x = x;

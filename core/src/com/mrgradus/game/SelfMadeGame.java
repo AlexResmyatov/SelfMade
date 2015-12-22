@@ -3,6 +3,7 @@ package com.mrgradus.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mrgradus.objects.TestLevel2;
 import com.mrgradus.screens.TestScreen;
 
 public class SelfMadeGame extends Game {

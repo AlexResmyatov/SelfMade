@@ -8,44 +8,52 @@ import com.badlogic.gdx.InputProcessor;
 public class InputListener implements InputProcessor {
 
 	HashMap<Integer,Click> touches;
-	
-	public InputListener() {
+	HashMap<Integer,Click> oldTouches;
+	Camera camera;
+	public InputListener(Camera camera) {
+		this.camera=camera;
 		touches = new HashMap<Integer,Click>();
+		oldTouches = new HashMap<Integer,Click>();
 	}
 	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-//		Gdx.app.log("touchDown", "x "+screenX+" y "+screenY +" ¹ "+pointer);
-//		touches.put(pointer, new Click((int)((float)screenX/((float)Gdx.graphics.getWidth()/1280.f)),
-//										(int)((float)(Gdx.graphics.getHeight()-screenY)/((float)Gdx.graphics.getWidth()/1280.f)),
-//										pointer));
-//		Gdx.app.log("touchDown", touches.get(pointer).getX()+" "+touches.get(pointer).getY());
-		touches.put(pointer, new Click(screenX,screenY,pointer));
+		touches.put(pointer, new Click(pointer));
+		oldTouches.put(pointer, new Click(screenX, screenY, pointer));
 		return true;
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		//Gdx.app.log("touchUp", "x "+screenX+" y "+screenY +" ¹ "+pointer);
 		touches.remove(pointer);
+		oldTouches.remove(pointer);
 		return true;
 	}
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-//		touches.get(pointer).setX((int)((float)screenX/((float)Gdx.graphics.getWidth()/1280.f)));
-//		touches.get(pointer).setY((int)((float)(Gdx.graphics.getHeight()-screenY)/((float)Gdx.graphics.getWidth()/1280.f)));
-		touches.get(pointer).setX(screenX);
-		touches.get(pointer).setY(screenY);
-		//Gdx.app.log("touchDragged", "x "+screenX+" y "+screenY+" p "+ pointer);
+		if(oldTouches.values().size()!=0){
+			oldTouches.get(pointer).setX(screenX);
+			oldTouches.get(pointer).setY(screenY);	
+		}
 		return true;
 	}
 	
 	public HashMap<Integer,Click> getTouches(){
+		if(oldTouches.values().size()!=0){
+			for(Click click: oldTouches.values()){
+				touches.get(click.getPointer()).setX((int)((click.getX())/camera.getScale()+camera.getCamX()));
+				touches.get(click.getPointer()).setY((int)((Gdx.graphics.getHeight()-click.getY())/camera.getScale()+camera.getCamY()));
+			}
+		}
+
 		return (HashMap<Integer,Click>)touches.clone();
 	}
 	
-	
+	public void dispose(){
+		touches.clear();
+		oldTouches.clear();
+	}
 	
 	
 	
