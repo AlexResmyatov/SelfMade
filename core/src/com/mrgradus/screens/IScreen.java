@@ -21,5 +21,7 @@ public interface IScreen extends Screen{
 	public HashMap<Integer, Click> getTouches();
 	
 	public Camera getCamera();
+	
+	public float getDelta();
 //	public float getScale();
 }

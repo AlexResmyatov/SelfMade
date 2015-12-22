@@ -7,8 +7,8 @@ import com.mrgradus.game.SelfMadeGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.height=600;
-		config.width=840;
+		config.height=300;
+		config.width=400;
 		new LwjglApplication(new SelfMadeGame(), config);
 	}
 }

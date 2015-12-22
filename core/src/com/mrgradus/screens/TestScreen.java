@@ -12,7 +12,7 @@ import com.mrgradus.objects.TestLevel;
 import com.mrgradus.objects.TestLevel2;
 
 public class TestScreen implements IScreen{
-
+	private float delta;
 	private HashMap<Integer,Click> touches;
 	private Game game;
 	private ALevel level;
@@ -38,10 +38,15 @@ public class TestScreen implements IScreen{
 	
 	@Override
 	public void render(float delta) {
-		
+		this.delta=delta;
 		touches = inputListener.getTouches();
 		level.update(delta);
 		camera.render(level.getAllObjects());
+	}
+	
+	@Override
+	public float getDelta(){
+		return delta;
 	}
 	
 	@Override

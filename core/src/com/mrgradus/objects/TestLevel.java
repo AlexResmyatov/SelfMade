@@ -7,21 +7,21 @@ import com.mrgradus.screens.IScreen;
 
 public class TestLevel extends ALevel {
 
-	private IScreen screen;
-	private List<IObject> objects;
-	
-	public TestLevel(IScreen screen){
-		this.screen=screen;
-		objects = new ArrayList<IObject>();
-		objects.add(new TestObject(screen));
-		//adds an objects
-	}
-	
-	public void update(float delta) {
-		for(IObject object: objects){
-			object.update(delta);
-		}
-	}
-
+//	private IScreen screen;
+//	private List<AObject> objects;
+//	
+//	public TestLevel(IScreen screen){
+//		this.screen=screen;
+//		objects = new ArrayList<AObject>();
+////		objects.add(new TestObject(screen));
+//		//adds an objects
+//	}
+//	
+//	public void update(float delta) {
+//		for(AObject object: objects){
+//			object.update(delta);
+//		}
+//	}
+//
 
 }

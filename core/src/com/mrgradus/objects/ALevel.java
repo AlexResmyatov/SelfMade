@@ -5,20 +5,20 @@ import java.util.List;
 
 public abstract class ALevel {
 
-	protected List<IObject> objects;
+	protected List<AObject> objects;
 	
 	public void update(float delta){
 		
 	}
 	
-	public List<IObject> getAllObjects(){
+	public List<AObject> getAllObjects(){
 		return objects;
 		
 	}
 	
-	public List<IObject> getObjectsWithPropertys(List<String> propertys){
-		List<IObject> objectsWithPropertys = new ArrayList<IObject>();
-		for(IObject object: objects){
+	public List<AObject> getObjectsWithPropertys(List<String> propertys){
+		List<AObject> objectsWithPropertys = new ArrayList<AObject>();
+		for(AObject object: objects){
 				if(object.getPropertys().containsAll(propertys)){
 					objectsWithPropertys.add(object);
 				}
@@ -28,13 +28,13 @@ public abstract class ALevel {
 		
 	}
 	
-	public List<IObject> getObjectsWithPropertys(String property){
+	public List<AObject> getObjectsWithPropertys(String property){
 		return null;
 		
 	}
 	
 	public void dispose(){
-		for(IObject object : objects){
+		for(AObject object : objects){
 			object.dispose();
 		}
 	}

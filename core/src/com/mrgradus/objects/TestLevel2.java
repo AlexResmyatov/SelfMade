@@ -16,18 +16,19 @@ public class TestLevel2 extends ALevel {
 	
 	public TestLevel2(IScreen screen){
 		this.screen=screen;
-		objects = new ArrayList<IObject>();
+		objects = new ArrayList<AObject>();
 		batch = new SpriteBatch();
-		objects.add(new TestObject2(screen,50));
-		objects.add(new TestObject2(screen,150));
-		objects.add(new TestObject2(screen,300));
-		objects.add(new TestB1(screen, 0));
+		objects.add(new TestObject2(50));
+		objects.add(new TestObject2(150));
+		objects.add(new TestObject2(300));
+		objects.add(new TestB1(0));
+		objects.add(new FPS());
 
 	}
 	
 	public void update(float delta) {
 		for(int i=0;i<objects.size();i++){
-			objects.get(i).update(delta);
+			objects.get(i).update(screen);
 		}
 
 	}

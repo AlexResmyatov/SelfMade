@@ -5,33 +5,26 @@ import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mrgradus.helpers.Click;
 import com.mrgradus.screens.IScreen;
 import com.mrgradus.screens.TestScreen;
 
-public class TestB1 implements IObject {
-	
-	int x=300;
-	int y=0;
-	int width=100;
-	int height=100;
-	List<String> propertys;
-	SpriteBatch batch;
+public class TestB1 extends AObject {
+
 	private Texture img;
-	private IScreen screen;
-	public TestB1(IScreen screen,int y) {
-		this.screen = screen;
+	public TestB1(int y) {
+		x=0;
+		width=100;
+		height=100;
 //		this.y=y;
-		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 //		img = new Texture("a.png");
-		propertys = new ArrayList<String>();
 		propertys.add(Propertys.PR_IMPASSABLE);
 	}
-	@Override
-	public void update(float delta) {
-		if(onClick()){
+	public void update(IScreen screen) {
+		if(onClick(screen)){
 //			x+=10;
 //			screen.getCamera().setCamX(screen.getCamera().getCamX()+5);
 			TestScreen screen1=new TestScreen(screen.getGame());
@@ -43,50 +36,12 @@ public class TestB1 implements IObject {
 		y=(int)screen.getCamera().getCamY();
 	}
 
-	@Override
-	public void render(SpriteBatch batch,int x,int y,int width, int height) {
-		batch.draw(img, x, y, width, height);
-
+	public void render(SpriteBatch batch,int x,int y,float scale) {
+		batch.draw(img, x, y, width*scale, height*scale);
+		
 	}
-	
-	private boolean onClick(){
-		for(Click click: screen.getTouches().values()){
-			if(click.getX()>x && click.getX()<x+width && 
-					click.getY()>y && click.getY()<y+height) 
-				return true;
-		}
-		return false;
-	}
-	
-	@Override
-	public List<String> getPropertys(){
-		return propertys;
-	}
-	@Override
-	public int getX(){
-		return x;
-	}
-	@Override
-	public int getY(){
-		return y;
-	}
-	@Override
-	public int getWidth(){
-		return width;
-	}
-	@Override
-	public int getHeight(){
-		return height;
-	}
-	
-	
-	public String toString(){
-		return "TestObject2 "+x+" "+y;
-	}
-	
-	@Override
 	public void dispose(){
 		img.dispose();
-		screen.getLevel().getAllObjects().remove(this);
 	}
+	
 }
