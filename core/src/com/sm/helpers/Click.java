@@ -1,4 +1,4 @@
-package com.mrgradus.helpers;
+package com.sm.helpers;
 
 public class Click {
 	private int x;

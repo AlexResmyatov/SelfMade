@@ -1,12 +1,12 @@
-package com.mrgradus.screens;
+package com.sm.screens;
 
 import java.util.HashMap;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
-import com.mrgradus.helpers.Camera;
-import com.mrgradus.helpers.Click;
-import com.mrgradus.objects.ALevel;
+import com.sm.helpers.Camera;
+import com.sm.helpers.Click;
+import com.sm.objects.ALevel;
 
 public interface IScreen extends Screen{
 	

@@ -1,9 +1,9 @@
-package com.mrgradus.game;
+package com.sm.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mrgradus.screens.TestScreen;
+import com.sm.screens.TestScreen;
 
 public class SelfMadeGame extends Game {
 	SpriteBatch batch;

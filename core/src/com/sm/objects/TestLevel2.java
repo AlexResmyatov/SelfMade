@@ -1,4 +1,4 @@
-package com.mrgradus.objects;
+package com.sm.objects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mrgradus.screens.IScreen;
+import com.sm.screens.IScreen;
 
 public class TestLevel2 extends ALevel {
 

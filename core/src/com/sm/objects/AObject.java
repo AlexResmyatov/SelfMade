@@ -1,12 +1,12 @@
-package com.mrgradus.objects;
+package com.sm.objects;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mrgradus.helpers.Click;
-import com.mrgradus.screens.IScreen;
+import com.sm.helpers.Click;
+import com.sm.screens.IScreen;
 
 public abstract class AObject {
 

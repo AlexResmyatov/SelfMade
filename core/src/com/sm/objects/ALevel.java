@@ -1,4 +1,4 @@
-package com.mrgradus.objects;
+package com.sm.objects;
 
 import java.util.ArrayList;
 import java.util.List;

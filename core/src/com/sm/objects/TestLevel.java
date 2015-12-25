@@ -1,9 +1,9 @@
-package com.mrgradus.objects;
+package com.sm.objects;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mrgradus.screens.IScreen;
+import com.sm.screens.IScreen;
 
 public class TestLevel extends ALevel {
 

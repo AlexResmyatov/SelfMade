@@ -1,10 +1,10 @@
-package com.mrgradus.objects;
+package com.sm.objects;
 
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mrgradus.screens.IScreen;
+import com.sm.screens.IScreen;
 
 public class FPS extends AObject {
 	

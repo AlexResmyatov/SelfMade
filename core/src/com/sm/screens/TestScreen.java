@@ -1,15 +1,15 @@
-package com.mrgradus.screens;
+package com.sm.screens;
 
 import java.util.HashMap;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.mrgradus.helpers.Camera;
-import com.mrgradus.helpers.Click;
-import com.mrgradus.helpers.InputListener;
-import com.mrgradus.objects.ALevel;
-import com.mrgradus.objects.TestLevel;
-import com.mrgradus.objects.TestLevel2;
+import com.sm.helpers.Camera;
+import com.sm.helpers.Click;
+import com.sm.helpers.InputListener;
+import com.sm.objects.ALevel;
+import com.sm.objects.TestLevel;
+import com.sm.objects.TestLevel2;
 
 public class TestScreen implements IScreen{
 	private float delta;

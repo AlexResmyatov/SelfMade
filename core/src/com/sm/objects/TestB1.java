@@ -1,32 +1,28 @@
-package com.mrgradus.objects;
+package com.sm.objects;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mrgradus.screens.IScreen;
+import com.sm.screens.IScreen;
+import com.sm.screens.TestScreen;
 
-public class TestObject2 extends AObject {
-	
+public class TestB1 extends AObject {
 
 	private Texture img;
-	public TestObject2(int y) {
-		x=500;
+	public TestB1(int y) {
+		x=0;
 		width=100;
 		height=100;
-		this.y=y;
-		img = new Texture("a.png");
-		properties.add("a");
+		img = new Texture("badlogic.jpg");
 		properties.add(Properties.PR_IMPASSABLE);
-		
 	}
-	
-	
 	public void update(IScreen screen) {
 		if(onClick(screen)){
-			x+=7;
-			screen.getCamera().setCamX(screen.getCamera().getCamX()+5);
+			screen.setScreen(new TestScreen(screen.getGame()));
 		}
-	
+		x=(int)screen.getCamera().getCamX();
+		y=(int)screen.getCamera().getCamY();
 	}
+
 	public void render(SpriteBatch batch,int x,int y,float scale) {
 		batch.draw(img, x, y, width*scale, height*scale);
 		
@@ -34,4 +30,5 @@ public class TestObject2 extends AObject {
 	public void dispose(){
 		img.dispose();
 	}
+	
 }

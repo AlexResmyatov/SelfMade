@@ -1,4 +1,4 @@
-package com.mrgradus.helpers;
+package com.sm.helpers;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mrgradus.objects.AObject;
+import com.sm.objects.AObject;
 
 public class Camera {
 	private float scale;
