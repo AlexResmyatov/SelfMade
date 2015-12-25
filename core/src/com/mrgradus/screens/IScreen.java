@@ -10,7 +10,7 @@ import com.mrgradus.objects.ALevel;
 
 public interface IScreen extends Screen{
 	
-	public void setScreen(Game game, IScreen screen);
+	public void setScreen(IScreen screen);
 	
 	public void setLevel(ALevel level);
 	

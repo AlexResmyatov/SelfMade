@@ -18,6 +18,9 @@ public class InputListener implements InputProcessor {
 	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		if (touches==null) return false;
+		if (oldTouches==null) return false;
+		//if (camera==null) return false;
 		touches.put(pointer, new Click(pointer));
 		oldTouches.put(pointer, new Click(screenX, screenY, pointer));
 		return true;

@@ -27,10 +27,24 @@ public class TestLevel2 extends ALevel {
 	}
 	
 	public void update(float delta) {
+		
+		ArrayList<String> properties = new ArrayList<>();
+		properties.add("a");
+		properties.add(Properties.PR_IMPASSABLE);
+		
+		ArrayList<AObject> objects = (ArrayList<AObject>) getObjectsWithProperties(properties);
+		
 		for(int i=0;i<objects.size();i++){
 			objects.get(i).update(screen);
 		}
-
+		
+		
+		
+		/*
+		for(int i=0;i<objects.size();i++){
+			objects.get(i).update(screen);
+		}
+		*/
 	}
 
 

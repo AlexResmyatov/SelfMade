@@ -66,6 +66,26 @@ public class TestScreen implements IScreen{
 	public ALevel getLevel() {
 		return level;
 	}
+	
+	@Override
+	public void dispose() {
+		Gdx.app.log(null, "dispose");
+		inputListener.dispose();
+		camera.dispose();
+		level.dispose();
+		
+		
+	}
+	@Override
+	public Game getGame(){
+		return game;
+	}
+	@Override
+	public void setScreen( IScreen screen) {
+		game.setScreen(screen);
+		
+	}
+	
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
@@ -95,24 +115,7 @@ public class TestScreen implements IScreen{
 		
 	}
 
-	@Override
-	public void dispose() {
-		Gdx.app.log(null, "dispose");
-		inputListener.dispose();
-		camera.dispose();
-		level.dispose();
-		
-		
-	}
-	@Override
-	public Game getGame(){
-		return game;
-	}
-	@Override
-	public void setScreen(Game game, IScreen screen) {
-		game.setScreen(screen);
-		
-	}
+
 
 	
 

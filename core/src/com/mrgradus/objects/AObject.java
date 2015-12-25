@@ -10,13 +10,29 @@ import com.mrgradus.screens.IScreen;
 
 public abstract class AObject {
 
-	int x=0;
-	int y=0;
-	int width=0;
-	int height=0;
-	List<String> propertys = new ArrayList<String>();;
-//	public Texture img;
-//	public IScreen screen;
+	int x;
+	int y;
+	int width;
+	int height;
+	List<String> properties = new ArrayList<String>();;
+
+	public abstract void update(IScreen screen);
+	public abstract void render(SpriteBatch batch,int x,int y,float scale);
+	public abstract void dispose();
+	
+
+	public boolean checkProperties(String checkableProperty) {
+		for (String property:properties)
+			if(property == checkableProperty) return true;
+		return false;
+	}
+	
+	public boolean checkProperties(List<String> properties) {
+		for (String checkableProperty:properties){
+			if(checkProperties(checkableProperty)==false) return false;
+		}
+		return true;
+	}
 	
 	public int getX(){
 		return x;
@@ -35,7 +51,7 @@ public abstract class AObject {
 	}
 	
 	public List<String> getPropertys(){
-		return propertys;
+		return properties;
 	}
 	
 	public boolean onClick(IScreen screen){
@@ -49,13 +65,8 @@ public abstract class AObject {
 		return false;
 	}
 	
-	public abstract void update(IScreen screen);
-	
-	public abstract void render(SpriteBatch batch,int x,int y,float scale);
-	
-	public abstract void dispose();
 	
 	public String toString(){
-		return "TestObject2 "+x+" "+y;
+		return "null "+x+" "+y;
 	}
 }

@@ -16,21 +16,20 @@ public abstract class ALevel {
 		
 	}
 	
-	public List<AObject> getObjectsWithPropertys(List<String> propertys){
-		List<AObject> objectsWithPropertys = new ArrayList<AObject>();
-		for(AObject object: objects){
-				if(object.getPropertys().containsAll(propertys)){
-					objectsWithPropertys.add(object);
-				}
-
+	public List<AObject> getObjectsWithProperties(List<String> properties){
+		List<AObject> withProperty = new ArrayList<>();
+		for (AObject object:objects){
+			if (object.checkProperties(properties)) withProperty.add(object); 
 		}
-		return objectsWithPropertys;
-		
+		return withProperty;
 	}
 	
-	public List<AObject> getObjectsWithPropertys(String property){
-		return null;
-		
+	public List<AObject> getObjectsWithProperties(String property){
+		List<AObject> withProperty = new ArrayList<>();
+		for (AObject object:objects){
+			if (object.checkProperties(property)) withProperty.add(object); 
+		}
+		return withProperty;
 	}
 	
 	public void dispose(){

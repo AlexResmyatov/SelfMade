@@ -1,5 +1,5 @@
 package com.mrgradus.objects;
 
-public class Propertys {
+public class Properties {
 	final static String PR_IMPASSABLE = "impassable";
 }
