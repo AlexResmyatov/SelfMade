@@ -6,18 +6,17 @@ import java.util.List;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.sm.levels.ALevel;
 import com.sm.screens.IScreen;
 
 public class TestLevel2 extends ALevel {
 
 	private IScreen screen;
-	SpriteBatch batch;
 	
 	
 	public TestLevel2(IScreen screen){
 		this.screen=screen;
 		objects = new ArrayList<AObject>();
-		batch = new SpriteBatch();
 		objects.add(new TestObject2(50));
 		objects.add(new TestObject2(250));
 		objects.add(new TestObject2(400));

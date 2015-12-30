@@ -8,31 +8,22 @@ import com.sm.helpers.Camera;
 import com.sm.helpers.Click;
 import com.sm.helpers.InputListener;
 import com.sm.levels.ALevel;
-import com.sm.levels.FirstLevel;
+import com.sm.levels.MainMenuLevel;
+import com.sm.objects.TestLevel2;
 
-public class TestScreen implements IScreen{
+public class MenuScreen implements IScreen{
 	private float delta;
 	private HashMap<Integer,Click> touches;
 	private Game game;
 	private ALevel level;
 	private InputListener inputListener;
 	private Camera camera;
-//	public TestScreen(Game game, ALevel level) {
-//
-//		this.game=game;
-//		camera = new Camera();
-//		inputListener = new InputListener(camera);
-//		
-////		level = new TestLevel2(this);
-//		level = new MainMenuLevel(this);
-//		Gdx.input.setInputProcessor(inputListener);
-//	}
-	public TestScreen(Game game) {
+	public MenuScreen(Game game) {
 		this.game=game;
 		camera = new Camera();
 		inputListener = new InputListener(camera);
 		Gdx.input.setInputProcessor(inputListener);
-		level = new FirstLevel(this);
+		level = new MainMenuLevel(this);
 		
 	}
 	

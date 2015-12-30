@@ -3,6 +3,8 @@ package com.sm.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.sm.helpers.AssetLoader;
+import com.sm.screens.MenuScreen;
 import com.sm.screens.TestScreen;
 
 public class SelfMadeGame extends Game {
@@ -11,7 +13,8 @@ public class SelfMadeGame extends Game {
 	
 	@Override
 	public void create () {
-		this.setScreen(new TestScreen(this));
+		AssetLoader.loadImages();
+		this.setScreen(new MenuScreen(this));
 	}
 
 	@Override

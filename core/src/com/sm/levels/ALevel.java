@@ -1,15 +1,17 @@
-package com.sm.objects;
+package com.sm.levels;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sm.objects.AObject;
+import com.sm.screens.IScreen;
+
 public abstract class ALevel {
 
 	protected List<AObject> objects;
+	protected IScreen screen;
 	
-	public void update(float delta){
-		
-	}
+	abstract public void update(float delta);
 	
 	public List<AObject> getAllObjects(){
 		return objects;

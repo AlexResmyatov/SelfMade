@@ -37,6 +37,10 @@ public class Camera {
 		
 	}
 	
+	public float getGameWidth(){
+		return GAME_WIDTH;
+	}
+	
 	public float getCamX(){
 		return camX;
 	}

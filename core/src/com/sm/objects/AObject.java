@@ -10,10 +10,10 @@ import com.sm.screens.IScreen;
 
 public abstract class AObject {
 
-	int x;
-	int y;
-	int width;
-	int height;
+	protected int x;
+	protected int y;
+	protected int width;
+	protected int height;
 	List<String> properties = new ArrayList<String>();;
 
 	public abstract void update(IScreen screen);
@@ -32,6 +32,17 @@ public abstract class AObject {
 			if(checkProperties(checkableProperty)==false) return false;
 		}
 		return true;
+	}
+	
+	public boolean onClick(IScreen screen){
+		if(screen!=null){
+			for(Click click: screen.getTouches().values()){
+				if(click.getX()>x && click.getX()<x+width && 
+						click.getY()>y && click.getY()<y+height) 
+					return true;
+			}
+		}
+		return false;
 	}
 	
 	public int getX(){
@@ -54,16 +65,7 @@ public abstract class AObject {
 		return properties;
 	}
 	
-	public boolean onClick(IScreen screen){
-		if(screen!=null){
-			for(Click click: screen.getTouches().values()){
-				if(click.getX()>x && click.getX()<x+width && 
-						click.getY()>y && click.getY()<y+height) 
-					return true;
-			}
-		}
-		return false;
-	}
+	
 	
 	
 	public String toString(){
