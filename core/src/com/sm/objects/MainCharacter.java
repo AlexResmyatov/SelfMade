@@ -10,6 +10,9 @@ import com.sm.objects.buttons.BCharacterControl;
 import com.sm.screens.IScreen;
 
 public class MainCharacter extends AObject{
+	enum CurrentState { STAYD, STAYL, STAYR, STAYU, WDOWN, WLEFT, WRIGHT, WUP}
+	CurrentState currentState = CurrentState.STAYD;
+	
 	BCharacterControl buttonDown;
 	BCharacterControl buttonLeft;
 	BCharacterControl buttonRight;
@@ -25,7 +28,7 @@ public class MainCharacter extends AObject{
 	Animation walkUp;
 	float stateTime;
 	ALevel level;
-	
+	float speed;
 	public MainCharacter(ALevel level) {
 		this.level = level;
 
