@@ -12,12 +12,7 @@ public class Concrete extends AObject {
 	public Concrete(int x, int y) {
 		this.x=x;
 		this.y=y;
-		width=64;
-		height=64;
-		img = AssetLoader.concrete;
-//		properties.add("a");
-//		properties.add(Properties.PR_IMPASSABLE);
-		
+		img = AssetLoader.concrete;		
 	}
 	
 	

@@ -12,8 +12,8 @@ public abstract class AObject {
 
 	protected int x;
 	protected int y;
-	protected int width;
-	protected int height;
+	protected int width=64;
+	protected int height=64;
 	List<String> properties = new ArrayList<String>();;
 
 	public abstract void update(IScreen screen);
