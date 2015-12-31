@@ -17,10 +17,10 @@ public class Concrete extends AObject {
 	
 	
 	public void update(IScreen screen) {
-		if(onClick(screen)){
-			x+=10;
-			screen.getCamera().setCamX(screen.getCamera().getCamX()-10);
-		}
+//		if(onClick(screen)){
+//			x+=10;
+//			screen.getCamera().setCamX(screen.getCamera().getCamX()-10);
+//		}
 	}
 	public void render(SpriteBatch batch,int x,int y,float scale) {
 		batch.draw(img, x, y, width*scale, height*scale);

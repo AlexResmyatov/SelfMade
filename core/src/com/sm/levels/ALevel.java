@@ -18,6 +18,10 @@ public abstract class ALevel {
 		
 	}
 	
+	public void addObject(AObject object){
+		objects.add(object);
+	}
+	
 	public List<AObject> getObjectsWithProperties(List<String> properties){
 		List<AObject> withProperty = new ArrayList<>();
 		for (AObject object:objects){

@@ -6,7 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.sm.objects.AObject;
 import com.sm.objects.Concrete;
-import com.sm.objects.Protagonist;
+import com.sm.objects.MainCharacter;
 import com.sm.screens.IScreen;
 
 public class FirstLevel extends ALevel {
@@ -24,7 +24,7 @@ public class FirstLevel extends ALevel {
 				objects.add(new Concrete(i*64, j*64));
 			}
 		}
-		objects.add(new Protagonist());
+		objects.add(new MainCharacter(this));
 	}
 
 	@Override
