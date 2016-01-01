@@ -12,7 +12,7 @@ import com.sm.screens.IScreen;
 public class MainCharacter extends AObject{
 	enum CurrentState { STAYD, STAYL, STAYR, STAYU, WDOWN, WLEFT, WRIGHT, WUP}
 	CurrentState currentState = CurrentState.STAYD;
-	
+	TextureRegion currentFrame;
 	BCharacterControl buttonDown;
 	BCharacterControl buttonLeft;
 	BCharacterControl buttonRight;
@@ -28,10 +28,11 @@ public class MainCharacter extends AObject{
 	Animation walkUp;
 	float stateTime;
 	ALevel level;
-	float speed;
+	float speedX = 0;
+	float speedY = 0;
 	public MainCharacter(ALevel level) {
 		this.level = level;
-
+		
 		stateTime = 0f;
 		this.x=0;
 		this.y=0;
@@ -60,33 +61,46 @@ public class MainCharacter extends AObject{
 		walkLeft  = new Animation(0.15f, trAnLeft);
 		walkRight = new Animation(0.15f, trAnRight);
 		walkUp    = new Animation(0.15f, trAnUp);
-
+		currentFrame = trAnDown[0];
 	}
 	
 	@Override
 	public void update(IScreen screen) {
 		stateTime+=screen.getDelta();
+		speedX=0;
+		speedY=0;
 		onClickButtonCharacterControl(screen);
+		
+		x=(int) (x+speedX*screen.getDelta());
+		y=(int) (y+speedY*screen.getDelta());
 	}
 
 	public void onClickButtonCharacterControl(IScreen screen){
 		if(buttonDown.onClick(screen)){
-			this.y-=10;
+			speedY-=100;
+			currentState = CurrentState.WDOWN;
+			currentFrame=walkDown.getKeyFrame(stateTime, true);
 		}
 		if(buttonLeft.onClick(screen)){
-			this.x-=10;
+			speedX-=100;
+			currentState = CurrentState.WLEFT;
+			currentFrame=walkLeft.getKeyFrame(stateTime, true);
 		}
 		if(buttonRight.onClick(screen)){
-			this.x+=10;
+			speedX+=100;
+			currentState = CurrentState.WRIGHT;
+			currentFrame=walkRight.getKeyFrame(stateTime, true);
 		}
 		if(buttonUp.onClick(screen)){
-			this.y+=10;
+			speedY+=100;
+			currentState = CurrentState.WUP;
+			currentFrame=walkUp.getKeyFrame(stateTime, true);
 		}
 	}
 	
 	@Override
 	public void render(SpriteBatch batch, int x, int y, float scale) {
-		batch.draw(walkRight.getKeyFrame(stateTime, true),x, y, width*scale, height*scale);
+		batch.draw(currentFrame,x, y, width*scale, height*scale);
 	}
 
 	@Override
