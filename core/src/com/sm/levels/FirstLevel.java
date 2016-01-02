@@ -11,17 +11,15 @@ import com.sm.screens.IScreen;
 
 public class FirstLevel extends ALevel {
 	
-	FileHandle map;
-	
 	public FirstLevel(IScreen screen){
 		this.screen=screen;
 		objects = new ArrayList<AObject>();
-//		map = Gdx.files.internal("firstlevel.txt");
-//		String tmap = map.readString();
-//		Gdx.app.log("map",tmap);
+		map = new AObject[100][100];
 		for(int i=0; i<100;i++){
 			for(int j=0; j<100; j++){
-				objects.add(new Concrete(i*64, j*64));
+				AObject object = new Concrete(i*64, j*64);
+				map[i][j] = object;
+				objects.add(object);
 			}
 		}
 		objects.add(new MainCharacter(this));

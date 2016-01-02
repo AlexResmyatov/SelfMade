@@ -8,6 +8,7 @@ import com.sm.screens.IScreen;
 
 public abstract class ALevel {
 
+	protected AObject[][] map;
 	protected List<AObject> objects;
 	protected IScreen screen;
 	
@@ -22,6 +23,9 @@ public abstract class ALevel {
 		objects.add(object);
 	}
 	
+	public AObject[][] getMap(){
+		return map;
+	}
 	public List<AObject> getObjectsWithProperties(List<String> properties){
 		List<AObject> withProperty = new ArrayList<>();
 		for (AObject object:objects){

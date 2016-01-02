@@ -77,22 +77,22 @@ public class MainCharacter extends AObject{
 
 	public void onClickButtonCharacterControl(IScreen screen){
 		if(buttonDown.onClick(screen)){
-			speedY-=100;
+			speedY=-200;
 			currentState = CurrentState.WDOWN;
 			currentFrame=walkDown.getKeyFrame(stateTime, true);
 		}
 		if(buttonLeft.onClick(screen)){
-			speedX-=100;
+			speedX=-200;
 			currentState = CurrentState.WLEFT;
 			currentFrame=walkLeft.getKeyFrame(stateTime, true);
 		}
 		if(buttonRight.onClick(screen)){
-			speedX+=100;
+			speedX=200;
 			currentState = CurrentState.WRIGHT;
 			currentFrame=walkRight.getKeyFrame(stateTime, true);
 		}
 		if(buttonUp.onClick(screen)){
-			speedY+=100;
+			speedY=200;
 			currentState = CurrentState.WUP;
 			currentFrame=walkUp.getKeyFrame(stateTime, true);
 		}
